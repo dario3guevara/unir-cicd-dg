@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Source') {
             steps {
-                git 'https://github.com/srayuso/unir-cicd.git'
+                git 'https://github.com/dario3guevara/unir-cicd-dg.git'
             }
         }
         stage('Build') {
@@ -37,7 +37,7 @@ pipeline {
         always {
             junit 'results/*_result.xml'
             echo 'ENVIO DE CORREO ELECTRONICO'
-            // emailext body: 'Numero de Ejecucion: (${BUILD_NUMBER}) - Nombre del Trabajo: '${JOB_NAME}'', subject: 'Correo Electronico', to: 'pedro@pedro.com'
+            // emailext body: 'Numero de Ejecucion: (${BUILD_NUMBER}) - Nombre del Trabajo: '${JOB_NAME}'', subject: 'Correo Electronico', to: 'dario_guevara@hotmail.com'
             echo "Numero de Ejecucion: (${BUILD_NUMBER}) - Nombre del Trabajo: '${JOB_NAME}'"
             echo "Job '${JOB_NAME}' (${BUILD_NUMBER}) is waiting for input"
             cleanWs()
